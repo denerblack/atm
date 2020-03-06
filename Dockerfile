@@ -10,8 +10,8 @@ RUN gem install rails -v '5.2.4.1'
 ENV SOURCE_HOME .
 ENV APP_HOME /app
 
-WORKDIR /app
-ADD Gemfile Gemfile.lock /app/
+WORKDIR $APP_HOME
+#ADD Gemfile Gemfile.lock
 
 COPY $SOURCE_HOME $APP_HOME
 COPY ./docker-entrypoint.sh /
