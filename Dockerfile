@@ -23,4 +23,5 @@ ENV BUNDLE_PATH=/bundle \
     BUNDLE_BIN=/bundle/bin \
     GEM_HOME=/bundle
 ENV PATH="${BUNDLE_BIN}:${PATH}"
+RUN bundle config --local build.sassc --disable-march-tune-native
 RUN bundle install
