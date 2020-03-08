@@ -1,5 +1,8 @@
 build:
   docker:
     web: Dockerfile
+release:
+  command:
+    - rake db:migrate
 run:
   web: bundle exec puma -C config/puma.rb
