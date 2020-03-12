@@ -8,7 +8,11 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("jquery")
+require("custom/scripts")
+require("@fortawesome/fontawesome-free")
+
 import 'bootstrap/dist/js/bootstrap';
+import 'startbootstrap-sb-admin/js/sb-admin.min.js';
 //require("bootstrap-sprockets")
 
 // Uncomment to copy all static images under ../images to the output folder and reference

@@ -55,6 +55,7 @@ group :test do
   gem 'simplecov', require: false
   gem 'rspec-rails', require: false
   gem 'factory_bot_rails'
+  gem 'database_cleaner-active_record'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

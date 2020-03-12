@@ -2,6 +2,7 @@
   "name": "ATM",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.12.1",
     "@rails/actioncable": "^6.0.0-alpha",
     "@rails/activestorage": "^6.0.0-alpha",
     "@rails/ujs": "^6.0.2-1",
@@ -9,6 +10,7 @@
     "bootstrap": "^4.4.1",
     "jquery": "^3.4.1",
     "popper.js": "^1.16.1",
+    "startbootstrap-sb-admin": "^5.1.1",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",

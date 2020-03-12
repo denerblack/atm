@@ -1,0 +1,57 @@
+<h1 class="mt-4">
+  Seja bem vindo, <%= current_user.fullname %>
+</h1>
+<ol class="breadcrumb mb-4">
+  <li class="breadcrumb-item active"><%= l(Time.now, format: :long) %></li>
+</ol>
+<div class="row">
+  <div class="col-md-8" >
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">
+          <h1>Saldo&nbsp;
+            <span class="badge badge-warning">
+              <%= number_to_currency(current_user.account_balance, unit: "R$", separator: ",", delimiter: ".") %>
+            </span>
+          </h1>
+        </h5>
+        <table class="table table-borderless table-sm">
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+          </tbody>
+        </table>
+        <a href="#" class="btn btn-primary pull-right">+</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4" >
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <button type="button" class="btn btn-danger btn-lg btn-block">Saque</button>
+            <br>
+          </div>
+          <div class="col-md-12">
+            <button type="button" class="btn btn-success btn-lg btn-block">Transferência</button>
+            <br>
+          </div>
+          <div class="col-md-12">
+            <button type="button" class="btn btn-primary btn-lg btn-block">Depósito</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
