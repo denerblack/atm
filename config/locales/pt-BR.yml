@@ -1,5 +1,12 @@
 ---
 pt-BR:
+  enumerize:
+    transaction:
+      kind:
+        withdraw: Saque
+        deposit: Depósito
+        transfer: Transferência
+        rate: Taxa
   activerecord:
     errors:
       messages:
@@ -17,7 +24,7 @@ pt-BR:
     - sex
     - sáb
     abbr_month_names:
-    - 
+    -
     - jan
     - fev
     - mar
@@ -43,7 +50,7 @@ pt-BR:
       long: "%d de %B de %Y"
       short: "%d de %B"
     month_names:
-    - 
+    -
     - janeiro
     - fevereiro
     - março

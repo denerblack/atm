@@ -19,7 +19,7 @@ class Transaction < ApplicationRecord
   def self.make_withdraw(account_number, value)
     self.transaction do
       account = Account.find_by(number: account_number)
-      self.create(kind: :withdraw, account_from: account, value: value)
+      self.create(kind: :withdraw, account_from: account, value: value, transactioned_at: Time.now)
       account.debit(value)
     end
   end

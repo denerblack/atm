@@ -17,18 +17,15 @@
         </h5>
         <table class="table table-borderless table-sm">
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
+            <% @user.transactions.each do |transaction| %>
+              <tr style="color: <%= transaction.font_color %>;">
+                <td><%= transaction.date %></td>
+                <td>
+                  <%= transaction.formated_value %>
+                </td>
+                <td><%= transaction.message %></td>
+              </tr>
+            <% end %>
           </tbody>
         </table>
         <a href="#" class="btn btn-primary pull-right">+</a>

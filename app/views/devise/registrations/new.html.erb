@@ -1,101 +1,38 @@
-<!--
-<h2>Sign up</h2>
-
-<%#= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%#= f.error_notification %>
-
-  <div class="form-inputs">
-    <%#= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%#= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%#= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
-  </div>
-
-  <div class="form-actions">
-    <%#= f.button :submit, "Sign up" %>
-  </div>
-<%# end %>
-
--->
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>Page Title - SB Admin</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
-    <head>
-      <title>ATM</title>
-      <%= csrf_meta_tags %>
-      <%= csp_meta_tag %>
-
-      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-      <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    </head>
-  </head>
-  <body class="bg-primary">
-    <div id="layoutAuthentication">
-      <div id="layoutAuthentication_content">
-        <main>
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-7">
-                <div class="card shadow-lg border-0 rounded-lg mt-5">
-                  <div class="card-header"><h3 class="text-center font-weight-light my-4">Criar Conta</h3></div>
-                  <div class="card-body">
-                    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-                      <div class="form-row">
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <%= f.input :first_name, required: true, autofocus: true, input_html: { autocomplete: "email", class: "form-control py-4", placeholder: "Primeiro nome" }, label_html: { class: "small mb-1" }%>
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <%= f.input :last_name, required: true, autofocus: true, input_html: { autocomplete: "email", class: "form-control py-4", placeholder: "Último nome" }, label_html: { class: "small mb-1" }%>
-                        </div>
-                      </div>
-                      <%= f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email", class: "form-control py-4", placeholder: "Email" }, label_html: { class: "small mb-1" }%>
-                      <div class="form-row">
-                        <div class="col-md-6">
-                          <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { class: "form-control py-4", autocomplete: "new-password" }, label_html: { class: "small mb-1" } %>
-                        </div>
-                        <div class="col-md-6">
-                          <%= f.input :password_confirmation, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { class: "form-control py-4", autocomplete: "new-password" }, label_html: { class: "small mb-1" } %>
-                        </div>
-                      </div>
-                      <div class="form-group mt-4 mb-0"><a class="btn btn-primary btn-block" href="login.html">Criar Conta</a></div>
-                    <% end %>
-                  </div>
-                  <div class="card-footer text-center">
-                    <div class="small">
-                      <%= render "devise/shared/links" %>
-                    </div>
-                  </div>
-                </div>
+<div class="row justify-content-center">
+  <div class="col-lg-7">
+    <div class="card shadow-lg border-0 rounded-lg mt-5">
+      <div class="card-header"><h3 class="text-center font-weight-light my-4">Criar Conta</h3></div>
+      <div class="card-body">
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <div class="form-row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <%= f.input :first_name, required: true, autofocus: true, input_html: { autocomplete: "email", class: "form-control py-4", placeholder: "Primeiro nome" }, label_html: { class: "small mb-1" }%>
               </div>
             </div>
-          </div>
-        </main>
-      </div>
-      <div id="layoutAuthentication_footer">
-        <footer class="py-4 bg-light mt-auto">
-          <div class="container-fluid">
-            <div class="d-flex align-items-center justify-content-between small">
-              <div class="text-muted">Copyright &copy; ATM 2020</div>
+            <div class="col-md-6">
+              <%= f.input :last_name, required: true, autofocus: true, input_html: { autocomplete: "email", class: "form-control py-4", placeholder: "Último nome" }, label_html: { class: "small mb-1" }%>
             </div>
           </div>
-        </footer>
+          <%= f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email", class: "form-control py-4", placeholder: "Email" }, label_html: { class: "small mb-1" }%>
+          <div class="form-row">
+            <div class="col-md-6">
+              <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { class: "form-control py-4", autocomplete: "new-password" }, label_html: { class: "small mb-1" } %>
+            </div>
+            <div class="col-md-6">
+              <%= f.input :password_confirmation, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { class: "form-control py-4", autocomplete: "new-password" }, label_html: { class: "small mb-1" } %>
+            </div>
+          </div>
+          <div class="form-group mt-4 mb-0">
+            <%= f.button :submit, "Criar Conta", class: "btn btn-primary btn-block" %>
+          </div>
+        <% end %>
+      </div>
+      <div class="card-footer text-center">
+        <div class="small">
+          <%= render "devise/shared/links" %>
+        </div>
       </div>
     </div>
-  </body>
-</html>
+  </div>
+</div>
