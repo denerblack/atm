@@ -15,7 +15,7 @@ class TransactionDecorator < SimpleDelegator
 
   def font_color
     case action
-    when "withdraw"
+    when "withdraw", "rate"
       "#dc3545"
     when "deposit"
       "#007bff"
@@ -23,6 +23,10 @@ class TransactionDecorator < SimpleDelegator
   end
 
   def message
+    if kind == :transfer
+      #return "Transferência #{'from_to'} #{(account_to || account_from).user.fullname}"
+      return "Transferência de #{account_from.user.fullname} para #{account_to.user.fullname}"
+    end
     kind.text
   end
 end

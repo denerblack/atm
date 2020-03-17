@@ -37,15 +37,18 @@
       <div class="card-body">
         <div class="row">
           <div class="col-md-12">
-            <button type="button" class="btn btn-danger btn-lg btn-block">Saque</button>
+            <button type="button" data-toggle="modal" data-target="#withdrawModal"class="btn btn-danger btn-lg btn-block">Saque</button>
+            <%= render "withdraw" %>
             <br>
           </div>
           <div class="col-md-12">
-            <button type="button" class="btn btn-success btn-lg btn-block">Transferência</button>
+            <button type="button" data-toggle="modal" class="btn btn-success btn-lg btn-block" data-target="#transferModal">Transferência</button>
+            <%= render "transfer" %>
             <br>
           </div>
           <div class="col-md-12">
-            <button type="button" class="btn btn-primary btn-lg btn-block">Depósito</button>
+            <button type="button" data-toggle="modal" class="btn btn-primary btn-lg btn-block" data-target="#depositModal">Depósito</button>
+            <%= render "deposit" %>
           </div>
         </div>
       </div>

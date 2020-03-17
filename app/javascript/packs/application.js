@@ -9,6 +9,7 @@ require("@rails/activestorage").start()
 require("channels")
 require("jquery")
 require("custom/scripts")
+require("custom/transactions")
 require("@fortawesome/fontawesome-free")
 
 import 'bootstrap/dist/js/bootstrap';

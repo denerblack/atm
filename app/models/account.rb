@@ -2,6 +2,8 @@ class Account < ApplicationRecord
 
   ACCOUNT_LENGTH = 5
 
+  has_one :user
+
   before_save :check_balance
   after_create :build_number
 
