@@ -1,7 +1,7 @@
 <div class="modal fade" id="depositModal" tabindex="-1" role="dialog" aria-labelledby="withdrawModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <%= simple_form_for :deposit, remote: true do |f| %>
-      <%= f.input :account_number, input_html: { value: @user.account_number }, as: :hidden %>
+      <%= f.input :account_number, url: '/transactions/deposit', input_html: { value: @user.account_number }, as: :hidden %>
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="depositModalLabel">Depósito</h5>

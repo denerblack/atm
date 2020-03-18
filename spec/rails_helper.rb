@@ -1,6 +1,6 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require_relative 'spec_helper'
-ENV['RAILS_ENV'] ||= 'test'
+::Rails.env ||= 'test'
 
 require File.expand_path('../config/environment', __dir__)
 

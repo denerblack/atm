@@ -4,7 +4,13 @@ class TransactionsController < ApplicationController
   end
 
   def deposit
-    transactions_service.make_deposit(deposit_params[:account_number], BigDecimal(deposit_params[:value]))
+    result = transactions_service.make_deposit(deposit_params[:account_number], BigDecimal(deposit_params[:value]))
+
+    if result.success?
+      render json: result.marshal_dump.to_json, code: 200
+    else
+      render json: result.marshal_dump.to_json, code: 302
+    end
   end
 
   def transfer
@@ -32,6 +38,6 @@ class TransactionsController < ApplicationController
   private
 
   def transactions_service
-    @transactions_service ||= TransactionsService.new(Time.now)
+    @transactions_service ||= ::TransactionsService.new(Time.now)
   end
 end

@@ -19,6 +19,7 @@ $(document).ready(function() {
     });
 
     $(".simple_form.deposit").submit(function(event) {
+        event.preventDefault();
         console.log(this);
         //var data = $(this).serializeFormJSON();
         var data = {
@@ -33,9 +34,13 @@ $(document).ready(function() {
             data:     data,
             dataType: 'json',
             encode:   true
-        })
+        }).done(function(data) {
+            console.log(data);
+            alert(data.message);
+        }).failure(function(data) {
+            alert(data.message)
+        });
 
-        event.preventDefault();
     });
 
     $(".simple_form.transfer").submit(function(event) {

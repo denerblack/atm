@@ -1,22 +1,28 @@
 require_relative '../rails_helper'
 
 RSpec.describe TransactionsService do
-  let!(:account_from) { FactoryBot.create(:account, :one) }
-  let!(:account_to) { FactoryBot.create(:account, :two) }
+  #let!(:account_from) { FactoryBot.create(:account, :one) }
+  #let!(:account_to) { FactoryBot.create(:account, :two) }
 
   context "Deposits" do
+    let!(:account_to) { FactoryBot.create(:account, :one) }
     let!(:transactions_service) { TransactionsService.new(Time.now) }
 
     it 'makes a deposit' do
-      account_to = FactoryBot.create(:account, :one)
-      transactions_service.make_deposit(account_to.number, 100.00)
+      result = transactions_service.make_deposit(account_to.number, 100.00)
+      expect(result.success?).to eq(true)
       expect(account_to.reload.balance).to eq BigDecimal(5_100)
       expect(account_to.reload.transactions.size).to eq 1
+    end
+
+    it 'error negative deposit' do
+      result = transactions_service.make_deposit(account_to.number, -100.00)
+      expect(result.success?).to eq(false)
     end
   end
 
   context "Withdraws" do
-    #let!(:account_from) { FactoryBot.create(:account, :one) }
+    let!(:account_from) { FactoryBot.create(:account, :one) }
     let!(:transactions_service) { TransactionsService.new(Time.now) }
 
     it 'makes a withdraw' do
@@ -31,6 +37,8 @@ RSpec.describe TransactionsService do
   end
 
   context "Makes transfers" do
+    let!(:account_from) { FactoryBot.create(:account, :one) }
+    let!(:account_to) { FactoryBot.create(:account, :two) }
 
     context 'transfer mon to fri bt 9 and 18 hours' do
       it 'less than 1000' do
@@ -49,6 +57,17 @@ RSpec.describe TransactionsService do
         expect(account_to.reload.balance).to eq BigDecimal(1100)
       end
     end
+
+    context 'account to not found' do
+      let!(:transactions_service) { TransactionsService.new(Time.now) }
+
+      it 'returns success false' do
+        debugger
+        result = transactions_service.make_transfer(account_from.number, '332s3', 1100.0)
+        expect(result.success?).to eq(false)
+      end
+    end
+
 
     context 'transfer another times' do
       context 'Day out of Mon and Fri' do
