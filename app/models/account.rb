@@ -4,7 +4,7 @@ class Account < ApplicationRecord
 
   has_one :user
 
-  before_save :check_balance
+  validate :check_balance
   after_create :build_number
 
   def transactions
@@ -22,7 +22,7 @@ class Account < ApplicationRecord
   private
 
   def check_balance
-    raise Exception.new("Conta não pode estar com saldo negativo.") if balance < 0
+    errors.add(:balance, "Saldo insuficiente para esta operação.") if balance < 0
   end
 
   def build_number

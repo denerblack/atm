@@ -1,0 +1,23 @@
+<h1 class="mt-4">
+  Seja bem vindo, <%= current_user.fullname %>
+</h1>
+
+<ol class="breadcrumb mb-4">
+  <li class="breadcrumb-item active"><%= l(Time.now, format: :long) %></li>
+</ol>
+
+<div class="card" style="width: 38rem;" >
+  <div class="card-body">
+    <%= simple_form_for(@account) do |f| %>
+    <div class="form-group row">
+      <label for="staticEmail" class="col-sm-2 col-form-label">Número</label>
+      <div class="col-sm-10">
+        <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<%= @account.number %>">
+      </div>
+    </div>
+    <div class="custom-control custom-switch">
+      <%= f.input :active, as: :boolean, label: "Ativar/Desativar Conta", input_html: { class: "custom-control-input" }, label_html: {class: "custom-control-label"} %>
+    </div>
+  <% end %>
+  </div>
+</div>

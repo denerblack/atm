@@ -10,10 +10,16 @@ require("channels")
 require("jquery")
 require("custom/scripts")
 require("custom/transactions")
-require("@fortawesome/fontawesome-free")
+require("@fortawesome/fontawesome-free/js/all")
+
+global.toastr = require("toastr")
+
+import 'toastr'
 
 import 'bootstrap/dist/js/bootstrap';
 import 'startbootstrap-sb-admin/js/sb-admin.min.js';
+
+
 //require("bootstrap-sprockets")
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -22,3 +28,22 @@ import 'startbootstrap-sb-admin/js/sb-admin.min.js';
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+
+toastr.options = {
+  "closeButton": false,
+  "debug": false,
+  "newestOnTop": false,
+  "progressBar": false,
+  "positionClass": "toast-top-center",
+  "preventDuplicates": false,
+  "onclick": null,
+  "showDuration": "300",
+  "hideDuration": "1000",
+  "timeOut": "5000",
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+}

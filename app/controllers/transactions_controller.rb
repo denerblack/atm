@@ -1,16 +1,14 @@
 class TransactionsController < ApplicationController
   def withdraw
-    transactions_service.make_withdraw(withdraw_params[:account_number], BigDecimal(withdraw_params[:value]))
+    result = transactions_service.make_withdraw(withdraw_params[:account_number], BigDecimal(withdraw_params[:value]))
+
+    render json: result.marshal_dump.to_json, status: 200
   end
 
   def deposit
     result = transactions_service.make_deposit(deposit_params[:account_number], BigDecimal(deposit_params[:value]))
 
-    if result.success?
-      render json: result.marshal_dump.to_json, code: 200
-    else
-      render json: result.marshal_dump.to_json, code: 302
-    end
+    render json: result.marshal_dump.to_json, status: 200
   end
 
   def transfer
@@ -18,7 +16,9 @@ class TransactionsController < ApplicationController
     account_to   = transfer_params[:account_to]
     value        = transfer_params[:value]
 
-    transactions_service.make_transfer(account_from, account_to, BigDecimal(value), Time.now)
+    result = transactions_service.make_transfer(account_from, account_to, BigDecimal(value))
+
+    render json: result.marshal_dump.to_json, status: 200
   end
 
   private

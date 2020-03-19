@@ -17,7 +17,7 @@
         </h5>
         <table class="table table-borderless table-sm">
           <tbody>
-            <% @user.transactions.each do |transaction| %>
+            <% @transactions.each do |transaction| %>
               <tr style="color: <%= transaction.font_color %>;">
                 <td><%= transaction.date %></td>
                 <td>
@@ -28,7 +28,7 @@
             <% end %>
           </tbody>
         </table>
-        <a href="#" class="btn btn-primary pull-right">+</a>
+        <%= paginate @transactions %>
       </div>
     </div>
   </div>

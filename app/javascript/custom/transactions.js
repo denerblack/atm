@@ -13,7 +13,16 @@ $(document).ready(function() {
             data:     data,
             dataType: 'json',
             encode:   true
-        })
+        }).done(function(data) {
+            if (data['success?'] == true) {
+                toastr.success(data.message);
+            } else {
+                toastr.error(data.message);
+            }
+        }).fail(function(data) {
+            console.log(data);
+            toastr.error(data.message);
+        });
 
         event.preventDefault();
     });
@@ -26,7 +35,6 @@ $(document).ready(function() {
             account_number: $("#deposit_account_number").val(),
             value: $('#deposit_value').val()
         };
-        console.log(data);
 
         $.ajax({
             type:     'POST',
@@ -35,11 +43,15 @@ $(document).ready(function() {
             dataType: 'json',
             encode:   true
         }).done(function(data) {
-            console.log(data);
-            alert(data.message);
-        }).failure(function(data) {
-            alert(data.message)
+            if (data['success?'] == true) {
+                toastr.success(data.message);
+            } else {
+                toastr.error(data.message);
+            }
+        }).fail(function(data) {
+            toastr.error(data.message);
         });
+        $('#depositModal').modal('hide');
 
     });
 
@@ -59,7 +71,15 @@ $(document).ready(function() {
             data:     data,
             dataType: 'json',
             encode:   true
-        })
+        }).done(function(data) {
+            if (data['success?'] == true) {
+                toastr.success(data.message);
+            } else {
+                toastr.error(data.message);
+            }
+        }).fail(function(data) {
+            toastr.error(data.message);
+        });
 
         event.preventDefault();
     });

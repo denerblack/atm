@@ -21,9 +21,15 @@ class TransactionsService
 
   def make_withdraw(account_number, value)
     Transaction.transaction do
-      account = Account.find_by(number: account_number)
-      Transaction.create(kind: :withdraw, account_from: account, value: value, transactioned_at: transactioned_at)
-      account.debit(value)
+      begin
+        account = Account.find_by(number: account_number)
+        Transaction.create(kind: :withdraw, account_from: account, value: value, transactioned_at: transactioned_at)
+        account.debit(value)
+        raise ArgumentError.new(account.errors.full_messages.join("\n")) unless account.valid?
+        OpenStruct.new(success?: true, message: "Efetuado o saque de #{value} da sua conta.")
+      rescue => e
+        OpenStruct.new(success?: false, message: e)
+      end
     end
   end
 
@@ -40,8 +46,8 @@ class TransactionsService
         account_from.debit(transfer_rate)
         account_to.credit(value)
         OpenStruct.new(success?: true, message: "Transferido #{value} para #{account_to.user.fullname}.")
-      rescue => e
-        OpenStruct.new(success?: false, message: e)
+      rescue ActiveRecord::RecordNotFound => e
+        OpenStruct.new(success?: false, message: e.to_s)
       end
     end
   end
