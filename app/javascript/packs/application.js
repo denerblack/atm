@@ -10,6 +10,7 @@ require("channels")
 require("jquery")
 require("custom/scripts")
 require("custom/transactions")
+require("custom/accounts")
 require("@fortawesome/fontawesome-free/js/all")
 
 global.toastr = require("toastr")
