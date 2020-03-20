@@ -12,10 +12,14 @@ Things you may want to cover:
 * Configuration
 
 * Database creation
+docker-compose run web rake db:migrate
 
 * Database initialization
 
 * How to run the test suite
+docker-compose run web rspec
+or
+rspec
 
 * Services (job queues, cache servers, search engines, etc.)
 
