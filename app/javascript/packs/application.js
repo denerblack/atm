@@ -9,17 +9,19 @@ require("@rails/activestorage").start()
 require("channels")
 require("jquery")
 require("custom/scripts")
-require("custom/transactions")
 require("custom/accounts")
 require("@fortawesome/fontawesome-free/js/all")
 
 global.toastr = require("toastr")
 
-import 'toastr'
+import './src/application.scss'
+import toastr from 'toastr'
+window.toastr = toastr
 
 import 'bootstrap/dist/js/bootstrap';
 import 'startbootstrap-sb-admin/js/sb-admin.min.js';
 
+require("custom/transactions")
 
 //require("bootstrap-sprockets")
 

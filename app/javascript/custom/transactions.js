@@ -1,12 +1,12 @@
 $(document).ready(function() {
     $(".simple_form.withdraw").submit(function(event) {
+        event.preventDefault();
         //var data = $(this).serializeFormJSON();
         var data = {
             account_number: $("#withdraw_account_number").val(),
             value: $('#withdraw_value').val()
         };
 
-        event.preventDefault();
         $.ajax({
             type:     'POST',
             url:      '/transactions/withdraw',
@@ -20,9 +20,9 @@ $(document).ready(function() {
                 toastr.error(data.message);
             }
         }).fail(function(data) {
-            console.log(data);
             toastr.error(data.message);
         });
+        $('#withdrawModal').modal('hide');
 
     });
 
@@ -76,5 +76,6 @@ $(document).ready(function() {
         }).fail(function(data) {
             toastr.error(data.message);
         });
+        $('#transferModal').modal('hide');
     });
 })
