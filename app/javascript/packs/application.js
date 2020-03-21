@@ -14,7 +14,7 @@ require("@fortawesome/fontawesome-free/js/all")
 
 global.toastr = require("toastr")
 
-import './src/application.scss'
+import 'src/application.scss'
 import toastr from 'toastr'
 window.toastr = toastr
 
