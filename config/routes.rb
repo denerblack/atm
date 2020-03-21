@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'welcome', to: "welcome#index"
   get 'accounts/show'
   get 'dashboard', to: "dashboard#index"
   devise_for :users, controllers: { registrations: "users/registrations", sessions: "users/sessions" }
@@ -7,4 +8,5 @@ Rails.application.routes.draw do
   post "transactions/deposit", to: "transactions#deposit"
   post "transactions/transfer", to: "transactions#transfer"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root to: "welcome#index"
 end

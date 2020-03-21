@@ -1,0 +1,23 @@
+<html class="">
+  <header>
+    <title>ATM</title>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': true %>
+  </header>
+  <body class="container">
+      <section id="hero">
+        <div class="hero-container">
+          <h1>A T M</h1>
+          <h2>Simples movimentações bancárias.</h2>
+          <div class="row ">
+            <div class="col-md-6">
+              <%= link_to "Cadastrar", new_user_registration_url, class: "btn btn-success btn-lg" %>
+            </div>
+            <div class="col-md-6">
+              <%= link_to "Entrar", new_user_session_url, class: "btn btn-warning btn-lg" %>
+            </div>
+          </div>
+        </div>
+      </section>
+  </body>
+</html>
