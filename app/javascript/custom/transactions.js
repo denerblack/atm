@@ -1,12 +1,12 @@
 $(document).ready(function() {
     $(".simple_form.withdraw").submit(function(event) {
-        console.log(this);
         //var data = $(this).serializeFormJSON();
         var data = {
             account_number: $("#withdraw_account_number").val(),
             value: $('#withdraw_value').val()
         };
 
+        event.preventDefault();
         $.ajax({
             type:     'POST',
             url:      '/transactions/withdraw',
@@ -24,18 +24,16 @@ $(document).ready(function() {
             toastr.error(data.message);
         });
 
-        event.preventDefault();
     });
 
     $(".simple_form.deposit").submit(function(event) {
-        event.preventDefault();
-        console.log(this);
         //var data = $(this).serializeFormJSON();
         var data = {
             account_number: $("#deposit_account_number").val(),
             value: $('#deposit_value').val()
         };
 
+        event.preventDefault();
         $.ajax({
             type:     'POST',
             url:      '/transactions/deposit',
@@ -56,15 +54,13 @@ $(document).ready(function() {
     });
 
     $(".simple_form.transfer").submit(function(event) {
-        console.log(this);
-        //var data = $(this).serializeFormJSON();
         var data = {
             account_from: $("#transfer_account_number").val(),
             account_to: $("#transfer_account_to").val(),
             value: $('#transfer_value').val()
         };
-        console.log(data);
 
+        event.preventDefault();
         $.ajax({
             type:     'POST',
             url:      '/transactions/transfer',
@@ -80,9 +76,5 @@ $(document).ready(function() {
         }).fail(function(data) {
             toastr.error(data.message);
         });
-
-        event.preventDefault();
     });
-
-
 })
