@@ -1,0 +1,5 @@
+<%= simple_form_for :filter, html: { class: "form-inline", method: :get } do |f| %>
+  <%= f.input :initial_date, input_html: { type: "date" }, label_html: { class: "my-1 mr-2" }, label: "Data inicial" %>
+  <%= f.input :final_date, input_html: { type: "date" }, label_html: { class: "my-1 mr-2" }, label: "Data final" %>
+  <button type="submit" class="btn btn-primary my-1">Filtrar</button>
+<% end %>

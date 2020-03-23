@@ -14,7 +14,7 @@ RSpec.describe Account, type: :model do
   end
 
   it 'create number' do
-    new_account = FactoryBot.create(:account)
+    new_account = FactoryBot.create(:account, id: 4)
     expect(new_account.reload.number).to eq("00004")
   end
 end

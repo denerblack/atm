@@ -32,7 +32,8 @@ RSpec.describe TransactionsService do
     end
 
     it 'makes a withdraw with error' do
-      expect { transactions_service.make_withdraw(account_from.number, 6_200.00) }.to raise_error
+      result = transactions_service.make_withdraw(account_from.number, 100_200.00)
+      expect(result.success?).to eq(false)
     end
   end
 
@@ -62,7 +63,6 @@ RSpec.describe TransactionsService do
       let!(:transactions_service) { TransactionsService.new(Time.now) }
 
       it 'returns success false' do
-        debugger
         result = transactions_service.make_transfer(account_from.number, '332s3', 1100.0)
         expect(result.success?).to eq(false)
       end

@@ -1,4 +1,6 @@
 class TransactionsController < ApplicationController
+  before_action :authenticate_user!
+
   def withdraw
     result = transactions_service.make_withdraw(withdraw_params[:account_number], BigDecimal(withdraw_params[:value]))
 

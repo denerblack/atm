@@ -38,6 +38,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 4.0.0.rc1'
   gem 'factory_bot_rails'
   gem 'database_cleaner-active_record'
+  #gem 'webdrivers'
 end
 
 gem 'devise'
@@ -55,7 +56,7 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
-  gem 'webdrivers'
+  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 end
 
 gem 'kaminari'
