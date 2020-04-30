@@ -9,7 +9,7 @@
     "@rails/ujs": "^6.0.2-1",
     "@rails/webpacker": "^4.0.0-rc.8",
     "bootstrap": "^4.4.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "popper.js": "^1.16.1",
     "startbootstrap-sb-admin": "^5.1.1",
     "toastr": "^2.1.4",
